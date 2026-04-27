@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>games</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: #000;
+      font-family: monospace;
+      color: #aaa;
+      padding: 24px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .slot {
+      border: 1px solid #333;
+      padding: 14px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .slot:hover { border-color: #555; color: #ddd; }
+    .slot-title { font-size: 12px; color: #ccc; }
+    .slot-desc { font-size: 10px; color: #555; }
+    #modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 999;
+    }
+    #modal.open { display: block; }
+    #closeBtn {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      background: #000;
+      border: 1px solid #333;
+      color: #aaa;
+      font-family: monospace;
+      font-size: 12px;
+      padding: 7px 14px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    #closeBtn:hover { border-color: #555; color: #ddd; }
+    #fsBtn {
+      position: fixed;
+      top: 12px;
+      right: 100px;
+      background: #000;
+      border: 1px solid #333;
+      color: #aaa;
+      font-family: monospace;
+      font-size: 12px;
+      padding: 7px 14px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    #fsBtn:hover { border-color: #555; color: #ddd; }
+    #gameFrame { width: 100vw; height: 100vh; border: none; display: block; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="slot" onclick="openGame('https://badideahere.github.io/dawj/')">
+      <div class="slot-title">five nights a big je's</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/nfaio/')">
+      <div class="slot-title">friday night funkin</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/1/')">
+      <div class="slot-title">fnaf 1</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/2/')">
+      <div class="slot-title">fnaf 2</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/3/')">
+      <div class="slot-title">fnaf 3</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/4/')">
+      <div class="slot-title">fnaf 4</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/minecraft1.5.2/')">
+      <div class="slot-title">minecraft</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/motox3m/')">
+      <div class="slot-title">moto x3m</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/sm64/')">
+      <div class="slot-title">mario 64</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/snake/')">
+      <div class="slot-title">snake</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/towermaster/')">
+      <div class="slot-title">tower master</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/vex3/')">
+      <div class="slot-title">vex 3</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/vex4/')">
+      <div class="slot-title">vex 4</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/vex5/')">
+      <div class="slot-title">vex 5</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/vex6/')">
+      <div class="slot-title">vex 6</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/tetris/')">
+      <div class="slot-title">tetris</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/underrun/')">
+      <div class="slot-title">underrun</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/cookieclicker/')">
+      <div class="slot-title">cookie clicker</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/clickerheros/')">
+      <div class="slot-title">clicker heroes</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/bitlife/')">
+      <div class="slot-title">bitlife</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/drivemad/')">
+      <div class="slot-title">drive mad</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/basketrandom/')">
+      <div class="slot-title">basket random</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/baldisbasics/')">
+      <div class="slot-title">baldi's basics</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/webecomewhatwebehold/')">
+      <div class="slot-title">we become what we behold</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/earntodie/')">
+      <div class="slot-title">earn to die</div>
+    </div>
+    <div class="slot" onclick="openGame('https://badideahere.github.io/tombofthemask/')">
+      <div class="slot-title">tomb of the mask</div>
+    </div>
+  </div>
+
+  <div id="modal">
+    <button id="fsBtn" onclick="goFullscreen()">fullscreen</button>
+    <button id="closeBtn" onclick="closeGame()">close</button>
+    <iframe id="gameFrame" src="" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function openGame(url) {
+      document.getElementById("gameFrame").src = url;
+      document.getElementById("modal").classList.add("open");
+      const modal = document.getElementById("modal");
+      if (modal.requestFullscreen) modal.requestFullscreen();
+      else if (modal.webkitRequestFullscreen) modal.webkitRequestFullscreen();
+    }
+    function goFullscreen() {
+      const modal = document.getElementById("modal");
+      if (modal.requestFullscreen) modal.requestFullscreen();
+      else if (modal.webkitRequestFullscreen) modal.webkitRequestFullscreen();
+    }
+    function closeGame() {
+      document.getElementById("gameFrame").src = "";
+      document.getElementById("modal").classList.remove("open");
+      if (document.exitFullscreen) document.exitFullscreen();
+      else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    }
+  </script>
+</body>
+</html>
